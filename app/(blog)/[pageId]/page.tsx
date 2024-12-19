@@ -1,12 +1,12 @@
 // import { rootNotionPageId } from '@/lib/config';
 import { NotionPage } from '@/components/notion-page';
 import * as notion from '@/lib/notion';
-import { defaultMapPageUrl, getAllPagesInSpace } from 'notion-utils';
-
-import { isDev, rootNotionPageId, rootNotionSpaceId } from '@/lib/config';
 
 import 'react-notion-x/src/styles.css';
 import '@/app/notion.css';
+
+import { defaultMapPageUrl, getAllPagesInSpace } from 'notion-utils';
+import { isDev, rootNotionPageId, rootNotionSpaceId } from '@/lib/config';
 
 export async function generateStaticParams() {
   if (isDev) {
@@ -23,14 +23,14 @@ export async function generateStaticParams() {
     .map((pageId) => mapPageUrl(pageId))
     .filter((path) => path && path !== '/');
 
-  return paths;
+  const formattedPaths = paths.map((path) => ({ pageId: path.replace(/^\/+/, '') }));
+
+  return formattedPaths;
 }
 
 export default async function ThoughtPage({ params }: { params: Promise<{ pageId: string }> }) {
-  const pageId = `/blog/${(await params).pageId}`;
-  console.log('🚀 ~ ThoughtPage ~ pageId:', pageId);
+  const { pageId } = await params;
   const recordMap = await notion.getPage(pageId);
-  console.log('🚀 ~ ThoughtPage ~ recordMap:', recordMap);
 
   return <NotionPage recordMap={recordMap} rootPageId={pageId} />;
 }

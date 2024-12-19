@@ -2,8 +2,8 @@
 
 // NOTE: rootNotionSpaceId is optional; set it to undefined if you don't want to use it.
 // export const rootNotionPageId = '067dd719a912471ea9a3ac10710e7fdf';
-// export const rootNotionPageId = '160c3f6b1f90801e8602ec879dce9a54';
-export const rootNotionPageId = '160c3f6b1f9080d9a55ee92bfebd3b38';
+// export const rootNotionPageId = '160c3f6b1f9080d9a55ee92bfebd3b38';
+export const rootNotionPageId = '160c3f6b1f90801e8602ec879dce9a54';
 export const rootNotionSpaceId = undefined;
 
 // NOTE: having this enabled can be pretty expensive as it re-generates preview
