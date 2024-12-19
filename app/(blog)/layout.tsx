@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import 'react-notion-x/src/styles.css';
+import '@/app/notion.css';
 
 export const metadata: Metadata = {
   title: 'Hakem - Software Developer',
-  description: ''
+  description: 'Blog'
 };
 
 export default function RootLayout({
@@ -11,9 +12,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className="antialiased bg-[#f7f5f3]">{children}</body>
-    </html>
-  );
+  return <>{children}</>;
 }
