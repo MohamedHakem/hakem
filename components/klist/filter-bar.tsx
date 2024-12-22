@@ -78,7 +78,7 @@ export function FilterBar({ status, sortBy, level, hideCompleted = false }: Filt
   if (isMobile) {
     return (
       <Drawer>
-        <DrawerTrigger className='h-9 px-2 py-1.5 rounded-md text-sm flex items-center justify-center gap-2 border bg-white text-primary shadow hover:bg-white/80'>
+        <DrawerTrigger className='h-[38px] px-2 py-1.5 rounded-md text-sm flex items-center justify-center gap-2 border bg-white text-primary hover:bg-white/80'>
           {/* <Button size="sm" className="h-9 bg-white text-inherent active:bg-white/80"> */}
           <SlidersHorizontal size={16} />
           Filters

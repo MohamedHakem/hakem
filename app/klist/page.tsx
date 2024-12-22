@@ -23,7 +23,7 @@ export default async function Page(props: { searchParams: SearchParams }) {
     <div className="mx-auto max-w-4xl p-4">
       {/* <Header /> */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-semibold">Klist 75</h1>
+        <h1 className="text-3xl font-semibold">Klist 75</h1>
         <div className="flex items-center gap-4 text-sm">
           <Suspense fallback={<div>Loading progress...</div>}>
             <ProgressBar hideOnMobile />
@@ -34,7 +34,7 @@ export default async function Page(props: { searchParams: SearchParams }) {
         </div>
       </div>
 
-      <div className="my-6 flex gap-2">
+      <div className="my-4 flex gap-2">
         <Suspense fallback={<div>Loading progress...</div>}>
           <ProgressBar />
         </Suspense>
