@@ -23,17 +23,21 @@ export default async function Page(props: { searchParams: SearchParams }) {
     <div className="mx-auto max-w-4xl p-4">
       {/* <Header /> */}
       <div className="flex items-center justify-between">
-        <h1 className="text-xl font-semibold">Klist 75</h1>
-        <div className="flex items-center gap-2 text-sm">
-          <span className="font-medium">🔥 {streak} day streak</span>
+        <h1 className="text-2xl font-semibold">Klist 75</h1>
+        <div className="flex items-center gap-4 text-sm">
+          <Suspense fallback={<div>Loading progress...</div>}>
+            <ProgressBar hideOnMobile />
+          </Suspense>
+          <span className="font-medium flex-shrink-0 px-2 py-1 md:border rounded-md">
+            🔥 {streak} day{streak > 1 ? 's' : ''} streak
+          </span>
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading progress...</div>}>
-        <ProgressBar />
-      </Suspense>
-
-      <div className="my-6">
+      <div className="my-6 flex gap-2">
+        <Suspense fallback={<div>Loading progress...</div>}>
+          <ProgressBar />
+        </Suspense>
         <FilterBar status={status} sortBy={sortBy as string} level={level} hideCompleted={hideCompleted === 'true'} />
       </div>
 

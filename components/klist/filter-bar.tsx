@@ -4,6 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { TopicsFilter } from './topics-filter';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '../ui/drawer-original';
+import { SlidersHorizontal } from 'lucide-react';
 
 interface FilterBarProps {
   status: string;
@@ -15,6 +18,7 @@ interface FilterBarProps {
 export function FilterBar({ status, sortBy, level, hideCompleted = false }: FilterBarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const isMobile = useIsMobile();
 
   const updateSearchParams = (key: string, value: string) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
@@ -22,7 +26,7 @@ export function FilterBar({ status, sortBy, level, hideCompleted = false }: Filt
     router.push(`?${current.toString()}`);
   };
 
-  return (
+  const content = (
     <div className="flex flex-wrap items-center gap-2 text-sm">
       <Select defaultValue="all" value={status} onValueChange={(value) => updateSearchParams('status', value)}>
         <SelectTrigger className="w-[120px] px-2 py-1 md:px-3 md:py-2 md:w-[130px]">
@@ -70,4 +74,23 @@ export function FilterBar({ status, sortBy, level, hideCompleted = false }: Filt
       </Button>
     </div>
   );
+
+  if (isMobile) {
+    return (
+      <Drawer>
+        <DrawerTrigger className='h-9 px-2 py-1.5 rounded-md text-sm flex items-center justify-center gap-2 border bg-white text-primary shadow hover:bg-white/80'>
+          {/* <Button size="sm" className="h-9 bg-white text-inherent active:bg-white/80"> */}
+          <SlidersHorizontal size={16} />
+          Filters
+          {/* </Button> */}
+        </DrawerTrigger>
+        <DrawerContent>
+          <DrawerTitle />
+          {content}
+        </DrawerContent>
+      </Drawer>
+    );
+  }
+
+  return <>{content}</>;
 }

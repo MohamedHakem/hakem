@@ -8,7 +8,6 @@ import { MouseEvent, useState } from 'react';
 
 export function TopicsFilter() {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
-  console.log('🚀 ~ TopicsFilter ~ selectedTopics:', selectedTopics);
 
   const handleSetQuestionTopic = (e: MouseEvent<HTMLLIElement>) => {
     const topic = (e.target as HTMLElement).innerText;

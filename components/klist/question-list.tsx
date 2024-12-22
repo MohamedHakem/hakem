@@ -37,8 +37,8 @@ export async function QuestionList({ status, search, sortBy, level, hideComplete
 
   return (
     <div className="space-y-2">
-      {sortedQuestions.map((question) => (
-        <QuestionCard key={question.id} {...question} completed={completedQuestions.includes(question.id)} />
+      {sortedQuestions.map((question, index) => (
+        <QuestionCard key={index} {...question} completed={completedQuestions.includes(question.id)} />
       ))}
     </div>
   );

@@ -51,9 +51,9 @@ export default function QuestionCard({
       onClick={handleToggleCompleted}
     >
       {/* Status & Number */}
-      <div className="flex items-center gap-3">
+      <div className="flex items-center">
         <button className={cn('hover:text-primary transition-colors', completed ? 'text-green-500' : '')}>
-          <CircleCheck className={cn('w-8 h-8', completed ? 'text-white fill-green-400' : 'text-white fill-[#ccc]')} />
+          <CircleCheck className={cn('w-9 h-9 md:w-10 md:h-10', completed ? 'text-white fill-green-400' : 'text-white fill-[#ccc]')} />
         </button>
       </div>
 
@@ -85,8 +85,8 @@ export default function QuestionCard({
             <span className="text-muted-foreground mx-2">•</span>
             <span className="text-muted-foreground">{timeEstimate} min</span>
             <div className="flex flex-wrap gap-1 ml-1">
-              {topics.map((topic) => (
-                <div className="flex gap-1">
+              {topics.map((topic, index) => (
+                <div key={index} className="flex gap-1">
                   <span className="text-muted-foreground mx-1">•</span>
                   <span key={topic} className="text-xs text-muted-foreground">
                     {topic === 'Dynamic Programming' ? (isMobile ? 'DP' : 'Dynamic Programming') : topic}
@@ -98,7 +98,7 @@ export default function QuestionCard({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2 mr-2">
+        <div className="flex items-center gap-2 w-10 md:w-fit justify-center md:mr-2">
           {/* <Button variant="outline" size="icon" asChild className="h-8 w-fit px-2 py-1 font-normal">
             <a href={leetCodeUrl} target="_blank" rel="noopener noreferrer" className="flex gap-1">
               <span className="sr-only">Open in LeetCode</span>
@@ -108,10 +108,13 @@ export default function QuestionCard({
           </Button> */}
           {videoUrl && (
             <Button
-              variant="outline"
+              variant={isMobile ? 'ghost' : 'outline'}
               size="icon"
               asChild
-              className={cn('h-9 w-fit p-1 md:p-2 hover:bg-red-100', completed ? 'bg-transparent border-0' : '')}
+              className={cn(
+                'h-9 w-fit shadow-none p-1 md:p-2 hover:bg-red-100',
+                completed ? 'bg-transparent border-0' : ''
+              )}
             >
               <a href={videoUrl} target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">Watch video solution</span>
