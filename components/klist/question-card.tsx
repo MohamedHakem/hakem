@@ -36,7 +36,7 @@ export default function QuestionCard({
   }
 
   return (
-    <div className={`group flex items-center gap-4 rounded-lg border p-3 transition-colors ${completed ? 'bg-green-50 opacity-75' : 'hover:bg-muted/50'}`}>
+    <div className={`group flex items-center gap-4 rounded-lg border p-3 transition-colors ${completed ? 'bg-green-100 opacity-75' : ' bg-white hover:bg-muted/50'}`}>
       {/* Status & Number */}
       <div className="flex items-center gap-3">
         <button 
