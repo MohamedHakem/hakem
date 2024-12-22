@@ -521,7 +521,7 @@ Thanks for sharing these guidelines! I cannot thank you enough! I really appreci
 
 const WorkEx: WorkExType[] = [
   {
-    position: 'Software Developer',
+    position: 'Software Engineer',
     company: 'BaskHealth',
     location: 'USA',
     workType: 'Remote',
