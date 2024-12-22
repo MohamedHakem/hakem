@@ -9,20 +9,36 @@ interface VaulDrawerProps {
   content: ReactNode;
   title: ReactNode;
   direction?: 'bottom' | 'top' | 'left' | 'right';
+  triggerClassName?: string;
 }
 
-export default function VaulDrawer({ trigger, content, title, direction = 'bottom' }: VaulDrawerProps) {
+export default function VaulDrawer({
+  trigger,
+  content,
+  title,
+  direction = 'bottom',
+  triggerClassName
+}: VaulDrawerProps) {
   return (
     <Drawer.Root shouldScaleBackground direction={direction}>
-      <Drawer.Trigger className="relative flex min-h-10 w-full flex-shrink-0 items-center justify-center gap-2 overflow-hidden bg-white text-sm font-medium shadow-sm transition-all hover:bg-[#FAFAFA] dark:bg-[#161615] dark:hover:bg-[#1A1A19] dark:text-white">
+      <Drawer.Trigger
+        className={cn(
+          'relative flex min-h-10 w-full flex-shrink-0 items-center justify-center gap-2 overflow-hidden bg-white text-sm font-medium shadow-sm transition-all hover:bg-[#FAFAFA] dark:bg-[#161615] dark:hover:bg-[#1A1A19] dark:text-white',
+          triggerClassName
+        )}
+      >
         {trigger}
       </Drawer.Trigger>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/40" />
+        <Drawer.Overlay className="fixed inset-0 bg-black/50" />
 
         {/* <Drawer.Title className="block">{title}</Drawer.Title> */}
         <Drawer.Content
-          className={cn('fixed z-10 outline-none flex w-full', direction === 'bottom' ? 'bottom-4' : 'top-4')}
+          className={cn(
+            'fixed z-10 outline-none flex w-full justify-center',
+            direction === 'bottom' ? 'bottom-4' : 'top-4',
+            'active:cursor-grabbing active:scale-97 transition-transform ease-in-out duration-200'
+          )}
           style={{ '--initial-transform': 'calc(100% + 8px)' } as React.CSSProperties}
         >
           <div className="bg-zinc-50 h-full w-full flex flex-col grow rounded-[36px] max-w-96 mx-4 xxs:mx-auto">

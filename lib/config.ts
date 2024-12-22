@@ -4,7 +4,7 @@
 // export const rootNotionPageId = '067dd719a912471ea9a3ac10710e7fdf';
 // export const rootNotionPageId = '160c3f6b1f9080d9a55ee92bfebd3b38';
 export const rootNotionPageId = '160c3f6b1f90801e8602ec879dce9a54';
-export const rootNotionSpaceId = undefined;
+export const rootNotionSpaceId = '8579c82d-7479-4ffe-8fb2-b9f37d94b499';
 
 // NOTE: having this enabled can be pretty expensive as it re-generates preview
 // images each time a page is built. In a production setting, we recommend that

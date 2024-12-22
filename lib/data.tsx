@@ -1,4 +1,4 @@
-import { platformsAndServicesType, TestimonialType, UpworkClientsType, WorkExType } from './types';
+import { platformsAndServicesType, QuestionItemProps, TestimonialType, UpworkClientsType, WorkExType } from './types';
 
 import { AWSIcon } from '@/components/icons/aws-icon';
 
@@ -767,4 +767,130 @@ const YTVideos: { title: string; img: StaticImageData; url: string }[] = [
   }
 ];
 
-export { platformsAndServices, Testimonials, UpworkClients, WorkEx, YTVideos };
+const klistQuestions: QuestionItemProps[] = [
+  {
+    id: 4,
+    title: 'Two Sum',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Array', 'Hash Table'],
+    leetCodeUrl: 'https://leetcode.com/problems/two-sum/',
+    videoUrl: 'https://youtube.com/watch?v=example1',
+    completed: false
+  },
+  {
+    id: 5,
+    title: 'Valid Parentheses',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Stack', 'String'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-parentheses/',
+    videoUrl: 'https://youtube.com/watch?v=example2',
+    completed: false
+  },
+  {
+    id: 6,
+    title: 'Merge Two Sorted Lists',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List', 'Recursion'],
+    leetCodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/',
+    videoUrl: 'https://youtube.com/watch?v=example3',
+    completed: false
+  },
+  {
+    id: 7,
+    title: 'Best Time to Buy and Sell Stock',
+    difficulty: 'Easy',
+    timeEstimate: 25,
+    topics: ['Array', 'Dynamic Programming'],
+    leetCodeUrl: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/',
+    videoUrl: 'https://youtube.com/watch?v=example4',
+    completed: false
+  },
+  {
+    id: 8,
+    title: 'Valid Palindrome',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Two Pointers', 'String'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-palindrome/',
+    videoUrl: 'https://youtube.com/watch?v=example5',
+    completed: false
+  }
+];
+
+const klistQuestionsTopics = [
+  'Array',
+  'String',
+  'Hash Table',
+  'Dynamic Programming',
+  'Math',
+  'Sorting',
+  'Greedy',
+  'Depth-First Search',
+  'Binary Search',
+  'Database',
+  'Breadth-First Search',
+  'Tree',
+  'Matrix',
+  'Two Pointers',
+  'Binary Tree',
+  'Bit Manipulation',
+  'Heap (Priority Queue)',
+  'Stack',
+  'Graph',
+  'Prefix Sum',
+  'Simulation',
+  'Design',
+  'Counting',
+  'Backtracking',
+  'Sliding Window',
+  'Union Find',
+  'Linked List',
+  'Ordered Set',
+  'Monotonic Stack',
+  'Enumeration',
+  'Trie',
+  'Recursion',
+  'Divide and Conquer',
+  'Bitmask',
+  'Queue',
+  'Binary Search Tree',
+  'Segment Tree',
+  'Memoization',
+  'Geometry',
+  'Topological Sort',
+  'Binary Indexed Tree',
+  'Hash Function',
+  'Game Theory',
+  'Shortest Path',
+  'Combinatorics',
+  'Interactive',
+  'String Matching',
+  'Data Stream',
+  'Rolling Hash',
+  'Brainteaser',
+  'Randomized',
+  'Monotonic Queue',
+  'Merge Sort',
+  'Iterator',
+  'Concurrency',
+  'Doubly-Linked List',
+  'Probability and Statistics',
+  'Quickselect',
+  'Bucket Sort',
+  'Suffix Array',
+  'Minimum Spanning Tree',
+  'Counting Sort',
+  'Shell',
+  'Line Sweep',
+  'Reservoir Sampling',
+  'Strongly Connected Component',
+  'Eulerian Circuit',
+  'Radix Sort',
+  'Rejection Sampling',
+  'Biconnected Component'
+];
+
+export { platformsAndServices, Testimonials, UpworkClients, WorkEx, YTVideos, klistQuestions, klistQuestionsTopics };

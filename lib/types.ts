@@ -1,4 +1,4 @@
-import { StaticImageData } from "next/image";
+import { StaticImageData } from 'next/image';
 
 export type platformsAndServicesType = {
   title: string;
@@ -41,3 +41,16 @@ export type WorkExType = {
   descIntro?: string;
   desc: { bold: string; text: string }[];
 };
+
+type Difficulty = 'Easy' | 'Medium' | 'Hard';
+
+export interface QuestionItemProps {
+  id: number;
+  title: string;
+  difficulty: Difficulty;
+  timeEstimate: number;
+  topics: string[];
+  leetCodeUrl: string;
+  videoUrl?: string;
+  completed: boolean;
+}
