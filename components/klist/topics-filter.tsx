@@ -1,19 +1,17 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
-import { Filter } from 'lucide-react';
-import { klistQuestionsTopics } from '@/lib/data';
-import { useState } from 'react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import VaulDrawer from '@/components/vaul-drawer';
+import { klistQuestionsTopics } from '@/lib/data';
+import { Filter } from 'lucide-react';
+import { MouseEvent, useState } from 'react';
 
 export function TopicsFilter() {
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   console.log('🚀 ~ TopicsFilter ~ selectedTopics:', selectedTopics);
 
-  const handleSetQuestionTopic = (e: any) => {
-    const topic = e.target.innerText;
-    console.log("🚀 ~ handleSetQuestionTopic ~ topic:", topic)
-    
+  const handleSetQuestionTopic = (e: MouseEvent<HTMLLIElement>) => {
+    const topic = (e.target as HTMLElement).innerText;
     if (selectedTopics.includes(topic)) {
       setSelectedTopics((prev) => prev.filter((t) => t !== topic));
     } else {

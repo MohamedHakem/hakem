@@ -1,12 +1,9 @@
 'use client';
 
-import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Search } from 'lucide-react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { TopicsFilter } from './topics-filter';
-import useMediaQuery from '@/hooks/use-media-query';
-import SearchDrawer from './search-drawer';
 
 interface FilterBarProps {
   status: string;
@@ -18,7 +15,6 @@ interface FilterBarProps {
 export function FilterBar({ status, sortBy, level, hideCompleted = false }: FilterBarProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const isMobile = useMediaQuery('(max-width: 768px)');
 
   const updateSearchParams = (key: string, value: string) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
@@ -28,8 +24,6 @@ export function FilterBar({ status, sortBy, level, hideCompleted = false }: Filt
 
   return (
     <div className="flex flex-wrap items-center gap-2 text-sm">
-      {/* <SearchDrawer /> */}
-
       <Select defaultValue="all" value={status} onValueChange={(value) => updateSearchParams('status', value)}>
         <SelectTrigger className="w-[120px] px-2 py-1 md:px-3 md:py-2 md:w-[130px]">
           <SelectValue placeholder="Status" />
