@@ -2,8 +2,8 @@ import { Suspense } from 'react';
 // import { Header } from '@/components/klist/header';
 // import SearchDrawer from '@/components/klist/search-drawer';
 import { FilterBar } from '@/components/klist/filter-bar';
-import { QuestionList } from '@/components/klist/question-list';
 import ProgressBar from '@/components/klist/progress-bar';
+import { QuestionList } from '@/components/klist/question-list';
 import { cookies } from 'next/headers';
 
 type SearchParams = Promise<{ [key: string]: string | undefined }>;

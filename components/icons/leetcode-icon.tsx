@@ -1,6 +1,8 @@
-import * as React from 'react';
+import { SVGProps } from 'react';
 
-export const LeetcodeIcon = (props: React.SVGProps<SVGSVGElement>) => {
+export const LeetcodeIcon = (props: SVGProps<SVGSVGElement>) => {
+  console.log("🚀 ~ LeetcodeIcon ~ props:", props)
+  
   return (
     <div className="bg-white border border-gray-50 rounded-full p-1 flex items-center justify-center">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="leetcode">

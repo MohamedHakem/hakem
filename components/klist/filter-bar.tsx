@@ -2,11 +2,11 @@
 
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { TopicsFilter } from './topics-filter';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '../ui/drawer-original';
 import { SlidersHorizontal } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '../ui/drawer-original';
+import { TopicsFilter } from './topics-filter';
 
 interface FilterBarProps {
   status: string;
