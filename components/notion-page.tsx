@@ -28,8 +28,8 @@ export function NotionPage({ recordMap, rootPageId }: { recordMap: ExtendedRecor
 
 // or better yet, check how he does it! 
 function CustomLink({ href, children, ...rest }: { href: string; children: React.ReactNode }) {
-  console.log("🚀 ~ CustomLink ~ children:", children)
-  console.log("🚀 ~ CustomLink ~ href:", href)
+  // console.log("🚀 ~ CustomLink ~ children:", children)
+  // console.log("🚀 ~ CustomLink ~ href:", href)
   
   const pageId = href.split('/').pop() || ''; // Extract the pageId from the href
   const shortId = pageId.slice(-3); // Last 3 characters of pageId

@@ -20,13 +20,13 @@ export function FilterBar() {
   const searchParams = useSearchParams();
 
   const groupBy = searchParams.get('groupBy') || 'default';
-  console.log("🚀 ~ FilterBar ~ groupBy:", groupBy)
+  // console.log("🚀 ~ FilterBar ~ groupBy:", groupBy)
   const sortBy = searchParams.get('sortBy') || 'default';
-  console.log("🚀 ~ FilterBar ~ sortBy:", sortBy)
+  // console.log("🚀 ~ FilterBar ~ sortBy:", sortBy)
   const level = searchParams.get('level') || 'all';
-  console.log("🚀 ~ FilterBar ~ level:", level)
+  // console.log("🚀 ~ FilterBar ~ level:", level)
   const hideCompleted = searchParams.get('hideCompleted') === 'true';
-  console.log("🚀 ~ FilterBar ~ hideCompleted:", hideCompleted)
+  // console.log("🚀 ~ FilterBar ~ hideCompleted:", hideCompleted)
 
   const updateSearchParams = (key: string, value: string) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));

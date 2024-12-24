@@ -1,7 +1,7 @@
 import { SVGProps } from 'react';
 
 export const LeetcodeIcon = (props: SVGProps<SVGSVGElement>) => {
-  console.log("🚀 ~ LeetcodeIcon ~ props:", props)
+  // console.log("🚀 ~ LeetcodeIcon ~ props:", props)
   
   return (
     <div className="bg-white border border-gray-50 rounded-full p-1 flex items-center justify-center">

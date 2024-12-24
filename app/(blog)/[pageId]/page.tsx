@@ -12,7 +12,7 @@ export async function generateStaticParams() {
   const pages = await getAllPagesInSpace(rootNotionPageId, rootNotionSpaceId, getPage, {
     traverseCollections: false
   });
-  console.log('🚀 ~ generateStaticParams ~ pages:', pages);
+  // console.log('🚀 ~ generateStaticParams ~ pages:', pages);
 
   const paths = Object.keys(pages)
     .map((pageId) => mapPageUrl(pageId))
@@ -27,7 +27,7 @@ export async function generateStaticParams() {
 export default async function ThoughtPage({ params }: { params: Promise<{ pageId: string }> }) {
   // get {slug}-{last-4-digits-of-id} (self-healing URL)
   const { pageId } = await params;
-  console.log('🚀 ~ ThoughtPage ~ pageId:', pageId);
+  // console.log('🚀 ~ ThoughtPage ~ pageId:', pageId);
   // get all ids
   const pages = await getAllPagesInSpace(rootNotionPageId, rootNotionSpaceId, getPage, {
     traverseCollections: false
@@ -36,11 +36,11 @@ export default async function ThoughtPage({ params }: { params: Promise<{ pageId
   const paths = Object.keys(pages)
     .map((pageId) => pageId)
     .filter((path) => path && path !== '/');
-  console.log('🚀 ~ ThoughtPage ~ paths:', paths);
+  // console.log('🚀 ~ ThoughtPage ~ paths:', paths);
   // match/filter with pageId from params
   // instead of matching the whole id, to be self healing, we match only the last 3 digits and ignore the slug/rest
   const matchedPageId = paths.find((path) => path.slice(-3) === pageId.slice(-3));
-  console.log('🚀 ~ ThoughtPage ~ matchedPageId:', matchedPageId);
+  // console.log('🚀 ~ ThoughtPage ~ matchedPageId:', matchedPageId);
   if (!matchedPageId) return notFound();
 
   // pass pageId to notion, then to NotionPage
