@@ -19,7 +19,7 @@ export function FilterBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const groupBy = searchParams.get('groupBy') || 'default';
+  // const groupBy = searchParams.get('groupBy') || 'default';
   // console.log("🚀 ~ FilterBar ~ groupBy:", groupBy)
   const sortBy = searchParams.get('sortBy') || 'default';
   // console.log("🚀 ~ FilterBar ~ sortBy:", sortBy)
