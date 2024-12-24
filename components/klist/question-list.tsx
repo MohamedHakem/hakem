@@ -7,7 +7,7 @@ import { useSearchParams } from 'next/navigation';
 
 export default function QuestionList() {
   const searchParams = useSearchParams();
-  const groupBy = searchParams.get('groupBy') || 'default';
+  // const groupBy = searchParams.get('groupBy') || 'default';
   const sortBy = searchParams.get('sortBy') || 'default';
   const level = searchParams.get('level') || 'all';
   const hideCompleted = searchParams.get('hideCompleted') === 'true';
@@ -15,9 +15,6 @@ export default function QuestionList() {
   const questions = getQuestions();
   const [completedQuestions] = useLocalStorage<number[]>('completedQuestions', []);
   console.log('🚀 ~ QuestionList ~ completedQuestions:', completedQuestions);
-
-  // const [completedQs, setCompletedQs] = useState(completedQuestions);
-  // console.log("🚀 ~ QuestionList ~ completedQs:", completedQs)
 
   const filteredQuestions = questions.filter((q) => {
     const matchesLevel = level === 'all' || q.difficulty.toLowerCase() === level.toLowerCase();
@@ -34,11 +31,6 @@ export default function QuestionList() {
     }
     return a.id - b.id; // Default sorting by ID
   });
-
-  // track completedQuestions and re-render
-  // useEffect(() => {
-  //   setCompletedQs(completedQuestions);
-  // }, [completedQuestions])
 
   return (
     <div className="space-y-2">

@@ -6,7 +6,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { createToggleCompleted } from '@/lib/actions';
 import { cn } from '@/lib/utils';
 import YTIcon from '@/public/youtube.webp';
-import { CircleCheck, SquareArrowOutUpRight } from 'lucide-react';
+import { CircleCheck } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
