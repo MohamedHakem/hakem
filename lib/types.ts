@@ -44,13 +44,14 @@ export type WorkExType = {
 
 type Difficulty = 'Easy' | 'Medium' | 'Hard';
 
-export interface QuestionItemProps {
+export type QuestionItemProps = {
   id: number;
   title: string;
   difficulty: Difficulty;
   timeEstimate: number;
   topics: string[];
+  patterns: string[];
   leetCodeUrl: string;
   videoUrl?: string;
   completed: boolean;
-}
+};

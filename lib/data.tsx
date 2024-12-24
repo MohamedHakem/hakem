@@ -769,53 +769,729 @@ const YTVideos: { title: string; img: StaticImageData; url: string }[] = [
 
 const klistQuestions: QuestionItemProps[] = [
   {
-    id: 4,
+    id: 1,
     title: 'Two Sum',
     difficulty: 'Easy',
     timeEstimate: 15,
-    topics: ['Array', 'Hash Table'],
-    leetCodeUrl: 'https://leetcode.com/problems/two-sum/',
-    videoUrl: 'https://youtube.com/watch?v=example1',
+    topics: ['Array'],
+    patterns: ['HashMap', 'Two Pointer'],
+    leetCodeUrl: 'https://leetcode.com/problems/two-sum',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 2,
+    title: 'Valid Parentheses',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Stack'],
+    patterns: ['Stack'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-parentheses',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 3,
+    title: 'Merge Two Sorted Lists',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List'],
+    patterns: ['Linked List', 'Two Pointer'],
+    leetCodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 4,
+    title: 'Best Time to Buy and Sell Stock',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Array'],
+    patterns: ['Sliding Window'],
+    leetCodeUrl: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock',
+    videoUrl: 'https://youtube.com/watch?v=something',
     completed: false
   },
   {
     id: 5,
-    title: 'Valid Parentheses',
+    title: 'Valid Palindrome',
     difficulty: 'Easy',
-    timeEstimate: 20,
-    topics: ['Stack', 'String'],
-    leetCodeUrl: 'https://leetcode.com/problems/valid-parentheses/',
-    videoUrl: 'https://youtube.com/watch?v=example2',
+    timeEstimate: 15,
+    topics: ['String'],
+    patterns: ['Two Pointer'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-palindrome',
+    videoUrl: 'https://youtube.com/watch?v=something',
     completed: false
   },
   {
     id: 6,
-    title: 'Merge Two Sorted Lists',
+    title: 'Invert Binary Tree',
     difficulty: 'Easy',
-    timeEstimate: 20,
-    topics: ['Linked List', 'Recursion'],
-    leetCodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists/',
-    videoUrl: 'https://youtube.com/watch?v=example3',
+    timeEstimate: 15,
+    topics: ['Binary Tree'],
+    patterns: ['DFS', 'BFS'],
+    leetCodeUrl: 'https://leetcode.com/problems/invert-binary-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
     completed: false
   },
   {
     id: 7,
-    title: 'Best Time to Buy and Sell Stock',
+    title: 'Valid Anagram',
     difficulty: 'Easy',
-    timeEstimate: 25,
-    topics: ['Array', 'Dynamic Programming'],
-    leetCodeUrl: 'https://leetcode.com/problems/best-time-to-buy-and-sell-stock/',
-    videoUrl: 'https://youtube.com/watch?v=example4',
+    timeEstimate: 15,
+    topics: ['String'],
+    patterns: ['HashMap'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-anagram',
+    videoUrl: 'https://youtube.com/watch?v=something',
     completed: false
   },
   {
     id: 8,
-    title: 'Valid Palindrome',
+    title: 'Binary Search',
     difficulty: 'Easy',
     timeEstimate: 15,
-    topics: ['Two Pointers', 'String'],
-    leetCodeUrl: 'https://leetcode.com/problems/valid-palindrome/',
-    videoUrl: 'https://youtube.com/watch?v=example5',
+    topics: ['Binary Search'],
+    patterns: ['Binary Search'],
+    leetCodeUrl: 'https://leetcode.com/problems/binary-search',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 9,
+    title: 'Flood Fill',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Graph'],
+    patterns: ['DFS', 'BFS'],
+    leetCodeUrl: 'https://leetcode.com/problems/flood-fill',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 10,
+    title: 'Lowest Common Ancestor of a BST',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['BST'],
+    patterns: ['BST Traversal'],
+    leetCodeUrl: 'https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 11,
+    title: 'Balanced Binary Tree',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary Tree'],
+    patterns: ['DFS', 'Post Order'],
+    leetCodeUrl: 'https://leetcode.com/problems/balanced-binary-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 12,
+    title: 'Linked List Cycle',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List'],
+    patterns: ['Cycle Detection'],
+    leetCodeUrl: 'https://leetcode.com/problems/linked-list-cycle',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 13,
+    title: 'Implement Queue using Stacks',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Stack'],
+    patterns: ['Stack Simulation'],
+    leetCodeUrl: 'https://leetcode.com/problems/implement-queue-using-stacks',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 14,
+    title: 'First Bad Version',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Binary Search'],
+    patterns: ['Binary Search'],
+    leetCodeUrl: 'https://leetcode.com/problems/first-bad-version',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 15,
+    title: 'Ransom Note',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Hash Table'],
+    patterns: ['Hash Map'],
+    leetCodeUrl: 'https://leetcode.com/problems/ransom-note',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 16,
+    title: 'Climbing Stairs',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Dynamic Programming'],
+    patterns: ['Dynamic Programming', 'Fibonacci'],
+    leetCodeUrl: 'https://leetcode.com/problems/climbing-stairs',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 17,
+    title: 'Longest Palindrome',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['String'],
+    patterns: ['Hash Map', 'Frequency Count'],
+    leetCodeUrl: 'https://leetcode.com/problems/longest-palindrome',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 18,
+    title: 'Reverse Linked List',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List'],
+    patterns: ['Linked List', 'Iteration', 'Recursion'],
+    leetCodeUrl: 'https://leetcode.com/problems/reverse-linked-list',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 19,
+    title: 'Majority Element',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Array'],
+    patterns: ['Hash Map', 'Boyer-Moore'],
+    leetCodeUrl: 'https://leetcode.com/problems/majority-element',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 20,
+    title: 'Add Binary',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary'],
+    patterns: ['Bit Manipulation', 'String Manipulation'],
+    leetCodeUrl: 'https://leetcode.com/problems/add-binary',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 21,
+    title: 'Diameter of Binary Tree',
+    difficulty: 'Easy',
+    timeEstimate: 30,
+    topics: ['Binary Tree'],
+    patterns: ['Tree Depth First Search (DFS)'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/diameter-of-binary-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 22,
+    title: 'Middle of the Linked List',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List'],
+    patterns: ['Fast & Slow Pointers'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/middle-of-the-linked-list',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 23,
+    title: 'Maximum Depth of Binary Tree',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary Tree'],
+    patterns: ['Tree Depth First Search (DFS)'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/maximum-depth-of-binary-tree',
+    videoUrl: 'https://youtube.com/watch?v/something',
+    completed: false
+  },
+  {
+    id: 24,
+    title: 'Contains Duplicate',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Array'],
+    patterns: ['Hash Table'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/contains-duplicate',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 25,
+    title: 'Meeting Rooms',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Array'],
+    patterns: ['Sorting'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/meeting-rooms',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 26,
+    title: 'Roman to Integer',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Math', 'String'],
+    patterns: ['Hash Table'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/roman-to-integer',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 27,
+    title: 'Backspace String Compare',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Stack'],
+    patterns: ['Stack'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/backspace-string-compare',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 28,
+    title: 'Counting Bits',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary'],
+    patterns: ['Bit Manipulation'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/counting-bits',
+    videoUrl: 'https://youtube.com/watch?v/something',
+    completed: false
+  },
+  {
+    id: 29,
+    title: 'Same Tree',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Binary Tree'],
+    patterns: ['Tree Depth First Search (DFS)'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/same-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 30,
+    title: 'Number of 1 Bits',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary'],
+    patterns: ['Bit Manipulation'], // Patterns now below topics
+    leetCodeUrl: 'https://leetcode.com/problems/number-of-1-bits',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 31,
+    title: 'Longest Common Prefix',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['String'],
+    patterns: ['Horizontal Scanning'], // Not in your list of 20, so added a suggestion
+    leetCodeUrl: 'https://leetcode.com/problems/longest-common-prefix',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 32,
+    title: 'Single Number',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary'],
+    patterns: ['Hash Table'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/single-number',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 33,
+    title: 'Palindrome Linked List',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List'],
+    patterns: ['Two Pointers'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/palindrome-linked-list',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 34,
+    title: 'Move Zeroes',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Array'],
+    patterns: ['Two Pointers'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/move-zeroes',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 35,
+    title: 'Symmetric Tree',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Binary Tree'],
+    patterns: ['Recursion'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/symmetric-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 36,
+    title: 'Missing Number',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Array', 'Math'], // Added Math as a topic
+    patterns: ['Arithmetic Progression'], // Not in your list of 20, so added a suggestion
+    leetCodeUrl: 'https://leetcode.com/problems/missing-number',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 37,
+    title: 'Palindrome Number',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Math'],
+    patterns: ['Reversal'], // Not in your list of 20, so added a suggestion
+    leetCodeUrl: 'https://leetcode.com/problems/palindrome-number',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 38,
+    title: 'Convert Sorted Array to BST',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['BST'],
+    patterns: ['Recursion'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 39,
+    title: 'Reverse Bits',
+    difficulty: 'Easy',
+    timeEstimate: 15,
+    topics: ['Binary'],
+    patterns: ['Bit Manipulation'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/reverse-bits',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 40,
+    title: 'Subtree of Another Tree',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Binary Tree'],
+    patterns: ['Recursive Traversal'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/subtree-of-another-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 41,
+    title: 'Squares of a Sorted Array',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Array'],
+    patterns: ['Two Pointers'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/squares-of-a-sorted-array',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 42,
+    title: 'Maximum Subarray',
+    difficulty: 'Medium', // Updated difficulty based on common rating
+    timeEstimate: 20,
+    topics: ['Dynamic Programming'],
+    patterns: ["Kadane's Algorithm"], // Not in your list of 20, so added a suggestion
+    leetCodeUrl: 'https://leetcode.com/problems/maximum-subarray',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 43,
+    title: 'Insert Interval',
+    difficulty: 'Medium', // Updated difficulty based on common rating
+    timeEstimate: 25,
+    topics: ['Array'],
+    patterns: ['Merging'], // Not in your list of 20, so added a suggestion
+    leetCodeUrl: 'https://leetcode.com/problems/insert-interval',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 44,
+    title: '01 Matrix',
+    difficulty: 'Medium', // Updated difficulty based on common rating
+    timeEstimate: 30,
+    topics: ['Graph'],
+    patterns: ['Breadth-First Search (BFS)'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/01-matrix',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 45,
+    title: 'K Closest Points to Origin',
+    difficulty: 'Medium', // Updated difficulty based on common rating
+    timeEstimate: 30,
+    topics: ['Heap'],
+    patterns: ['Min Heap'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/k-closest-points-to-origin',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 46,
+    title: 'Longest Substring (no Repeat)',
+    difficulty: 'Medium', // Updated difficulty based on common rating
+    timeEstimate: 30,
+    topics: ['String'],
+    patterns: ['Sliding Window'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/longest-substring-without-repeating-characters',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 47,
+    title: '3Sum',
+    difficulty: 'Medium', // Updated difficulty based on common rating
+    timeEstimate: 30,
+    topics: ['Array'],
+    patterns: ['Two Pointers'], // Likely pattern
+    leetCodeUrl: 'https://leetcode.com/problems/3sum',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 48,
+    title: 'Binary Tree Level Order Traversal',
+    difficulty: 'Medium', // Corrected difficulty
+    timeEstimate: 20,
+    topics: ['Binary Tree'],
+    patterns: ['Tree Breadth First Search (BFS)'], // FINALLY added the patterns property!
+    leetCodeUrl: 'https://leetcode.com/problems/binary-tree-level-order-traversal',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 49,
+    title: 'Clone Graph',
+    difficulty: 'Medium',
+    timeEstimate: 25,
+    topics: ['Graph'],
+    patterns: ['Breadth-First Search (BFS)', 'Depth-First Search (DFS)'],
+    leetCodeUrl: 'https://leetcode.com/problems/clone-graph',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 50,
+    title: 'Evaluate Reverse Polish Notation',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Stack'],
+    patterns: ['Stack'],
+    leetCodeUrl: 'https://leetcode.com/problems/evaluate-reverse-polish-notation',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 51,
+    title: 'Course Schedule',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Graph'],
+    patterns: ['Topological Sort (Graph)'],
+    leetCodeUrl: 'https://leetcode.com/problems/course-schedule',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 52,
+    title: 'Implement Trie (Prefix Tree)',
+    difficulty: 'Medium',
+    timeEstimate: 35,
+    topics: ['Trie'],
+    patterns: ['Trie'], // Or "Prefix Tree"
+    leetCodeUrl: 'https://leetcode.com/problems/implement-trie-prefix-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 53,
+    title: 'Coin Change',
+    difficulty: 'Medium',
+    timeEstimate: 25,
+    topics: ['Dynamic Programming'],
+    patterns: ['Dynamic Programming'],
+    leetCodeUrl: 'https://leetcode.com/problems/coin-change',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 54,
+    title: 'Product of Array Except Self',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Array'],
+    patterns: ['Prefix and Suffix Products'], // Or Array Manipulation
+    leetCodeUrl: 'https://leetcode.com/problems/product-of-array-except-self',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 55,
+    title: 'Min Stack',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Stack'],
+    patterns: ['Stack'],
+    leetCodeUrl: 'https://leetcode.com/problems/min-stack',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 56,
+    title: 'Validate Binary Search Tree',
+    difficulty: 'Medium',
+    timeEstimate: 20,
+    topics: ['BST'],
+    patterns: ['Tree Depth First Search (DFS)'], // Or Recursion
+    leetCodeUrl: 'https://leetcode.com/problems/validate-binary-search-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 57,
+    title: 'Number of Islands',
+    difficulty: 'Medium',
+    timeEstimate: 25,
+    topics: ['Graph'],
+    patterns: ['Island Traversal', 'Depth-First Search (DFS)', 'Breadth-First Search (BFS)'],
+    leetCodeUrl: 'https://leetcode.com/problems/number-of-islands',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 58,
+    title: 'Rotting Oranges',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Graph'],
+    patterns: ['Breadth-First Search (BFS)'],
+    leetCodeUrl: 'https://leetcode.com/problems/rotting-oranges',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 59,
+    title: 'Merge Two Sorted Lists',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Linked List'],
+    patterns: ['Two Pointers'],
+    leetCodeUrl: 'https://leetcode.com/problems/merge-two-sorted-lists',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 60,
+    title: 'Valid Parentheses',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Stack'],
+    patterns: ['Stack'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-parentheses',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 61,
+    title: 'Maximum Depth of Binary Tree',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Binary Tree'],
+    patterns: ['Tree Depth-First Search (DFS)'],
+    leetCodeUrl: 'https://leetcode.com/problems/maximum-depth-of-binary-tree',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 62,
+    title: 'Unique Paths II',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Dynamic Programming'],
+    patterns: ['Dynamic Programming'],
+    leetCodeUrl: 'https://leetcode.com/problems/unique-paths-ii',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 63,
+    title: 'Minimum Path Sum',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Dynamic Programming'],
+    patterns: ['Dynamic Programming'],
+    leetCodeUrl: 'https://leetcode.com/problems/minimum-path-sum',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 64,
+    title: 'Longest Common Substring',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['String'],
+    patterns: ['Dynamic Programming'],
+    leetCodeUrl: 'https://leetcode.com/problems/longest-common-substring',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 65,
+    title: 'Valid Sudoku',
+    difficulty: 'Medium',
+    timeEstimate: 30,
+    topics: ['Hash Table'],
+    patterns: ['Hash Table'],
+    leetCodeUrl: 'https://leetcode.com/problems/valid-sudoku',
+    videoUrl: 'https://youtube.com/watch?v=something',
+    completed: false
+  },
+  {
+    id: 66,
+    title: 'Plus One',
+    difficulty: 'Easy',
+    timeEstimate: 20,
+    topics: ['Array'],
+    patterns: ['Array Manipulation'],
+    leetCodeUrl: 'https://leetcode.com/problems/plus-one',
+    videoUrl: 'https://youtube.com/watch?v=something',
     completed: false
   }
 ];
@@ -894,3 +1570,71 @@ const klistQuestionsTopics = [
 ];
 
 export { platformsAndServices, Testimonials, UpworkClients, WorkEx, YTVideos, klistQuestions, klistQuestionsTopics };
+
+// Patterns
+// Patterns are specific strategies or approaches used to solve common problem types.
+
+// Two Pointers
+// Fast and Slow Pointers
+// Sliding Window
+// Merge Intervals
+// Cyclic Sort
+// In-place Reversal of a Linked List
+// Tree Breadth First Search
+// Tree Depth First Search
+// Monotonic Stack
+// Two Heaps
+// Top 'K' Elements
+// Backtracking
+// Topological Sort (Graph)
+// K-Way Merge
+// Modified Binary Search
+// Subsets
+// Island (Matrix Traversal)
+// Bitwise XOR
+// 0/1 Knapsack (Dynamic Programming)
+// Multi-threaded
+// Prefix Sum
+// Kadane's Algorithm
+// Bucket Sort
+// Divide and Conquer
+// Union Find
+// Minimum Spanning Tree
+// Shortest Path
+// Eulerian Circuit
+// Topics (Updated)
+
+// Topics are broader categories or data structures and concepts used in problem-solving.
+// Arrays
+// Strings
+// Bit Manipulation
+// Hash Tables
+// Matrix (2D Array)
+// Linked List
+// Stacks
+// Queues
+// Binary Search
+// BST / Ordered Set
+// Tries
+// Heaps
+// Intervals
+// Data Structure Design
+// String Matching
+// Binary Indexed Tree / Segment Tree
+// Maths / Geometry
+// Line Sweep
+// Suffix Array
+
+// Dynamic Programming (DP)
+// DP problems often span both topics and patterns, they are listed separately for clarity:
+// 1-D DP
+// Knapsack DP
+// Unbounded Knapsack DP
+// Longest Increasing Subsequence DP
+// 2D (Grid) DP
+// String DP
+// Tree / Graph DP
+// Bitmask DP
+// Digit DP
+// Probability DP
+// State Machine DP
