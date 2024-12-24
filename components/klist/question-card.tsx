@@ -54,7 +54,7 @@ export default function QuestionCard({
       className={cn(
         'group flex items-center gap-1.5 md:gap-3 rounded-lg border py-3 px-2 transition-colors cursor-pointer',
         'transition-all ease-in-out duration-75 hover:scale-[99%] active:scale-[97%]',
-        completed ? 'bg-green-50 opacity-75' : ' bg-white'
+        completed ? 'bg-green-50' : ' bg-white'
       )}
       onClick={handleToggleCompleted}
     >
@@ -78,7 +78,7 @@ export default function QuestionCard({
             <a href={leetCodeUrl} target="_blank" rel="noopener noreferrer" className="flex gap-1 items-center">
               <span className="sr-only">Open in LeetCode</span>
               <span
-                className={cn('text-sm md:text-lg max-w-52 truncate', completed ? 'text-gray-600' : 'text-blue-600')}
+                className={cn('text-sm md:text-lg max-w-52 md:max-w-[24rem] truncate', completed ? 'text-gray-600' : 'text-blue-600')}
               >
                 {title.replace('Lowest Common Ancestor', 'LCA')}
               </span>
