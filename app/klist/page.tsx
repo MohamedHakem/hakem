@@ -2,6 +2,7 @@ import { FilterBar } from '@/components/klist/filter-bar';
 import ProgressBar from '@/components/klist/progress-bar';
 import QuestionList from '@/components/klist/question-list';
 import Header from '@/components/klist/header';
+import { Suspense } from 'react';
 
 export default function Page() {
   return (
@@ -13,7 +14,9 @@ export default function Page() {
         <FilterBar />
       </div>
 
-      <QuestionList />
+      <Suspense fallback={<div>Loading...</div>}>
+        <QuestionList />
+      </Suspense>
     </div>
   );
 }
