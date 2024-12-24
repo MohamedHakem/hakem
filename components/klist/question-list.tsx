@@ -14,7 +14,7 @@ export default function QuestionList() {
 
   const questions = getQuestions();
   const [completedQuestions] = useLocalStorage<number[]>('completedQuestions', []);
-  console.log('🚀 ~ QuestionList ~ completedQuestions:', completedQuestions);
+  // console.log('🚀 ~ QuestionList ~ completedQuestions:', completedQuestions);
 
   const filteredQuestions = questions.filter((q) => {
     const matchesLevel = level === 'all' || q.difficulty.toLowerCase() === level.toLowerCase();

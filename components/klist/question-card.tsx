@@ -54,7 +54,7 @@ export default function QuestionCard({
       className={cn(
         'group flex items-center gap-1.5 md:gap-3 rounded-lg border py-3 px-2 transition-colors cursor-pointer',
         'transition-all ease-in-out duration-75 hover:scale-[99%] active:scale-[97%]',
-        completed ? 'bg-green-50 opacity-75' : ' bg-white hover:bg-muted/[.99]'
+        completed ? 'bg-green-50 opacity-75' : ' bg-white'
       )}
       onClick={handleToggleCompleted}
     >
