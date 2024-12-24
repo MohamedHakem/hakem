@@ -11,7 +11,9 @@ export default function Page() {
 
       <div className="my-4 flex gap-2">
         <ProgressBar />
-        <FilterBar />
+        <Suspense fallback={<div>Loading...</div>}>
+          <FilterBar />
+        </Suspense>
       </div>
 
       <Suspense fallback={<div>Loading...</div>}>
