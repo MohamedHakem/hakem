@@ -165,7 +165,7 @@ export default function ProgressBar({ hideOnMobile = false }: { hideOnMobile?: b
   //   setCompletedQuestions(storedCompletedQuestions); // Ensure the state is updated if localStorage changes
   // }, [completedQuestions]); // Depend on completedQuestions to update when it changes
 
-  console.log('🚀 ~ ProgressBar ~ completedQuestions:', completedQuestions);
+  // console.log('🚀 ~ ProgressBar ~ completedQuestions:', completedQuestions);
 
   if (!hideOnMobile) {
     return (
