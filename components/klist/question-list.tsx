@@ -33,10 +33,10 @@ export default function QuestionList() {
   });
 
   return (
-    <div className="space-y-2">
+    <ul className="space-y-2">
       {sortedQuestions.map((question) => (
         <QuestionCard key={question.id} {...question} completed={completedQuestions.includes(question.id)} />
       ))}
-    </div>
+    </ul>
   );
 }

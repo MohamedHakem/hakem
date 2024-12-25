@@ -50,11 +50,11 @@ export default function QuestionCard({
   }, [initialCompleted]);
 
   return (
-    <div
+    <li
       className={cn(
         'group flex items-center gap-1.5 md:gap-3 rounded-lg border py-3 px-2 transition-colors cursor-pointer',
-        'transition-all ease-in-out duration-75 hover:scale-[99%] active:scale-[97%]',
-        completed ? 'bg-green-50' : ' bg-white'
+        'transition-all ease-in-out duration-25 hover:scale-[99%] active:scale-[98%] select-none',
+        completed ? 'bg-green-100' : ' bg-white'
       )}
       onClick={handleToggleCompleted}
     >
@@ -78,7 +78,10 @@ export default function QuestionCard({
             <a href={leetCodeUrl} target="_blank" rel="noopener noreferrer" className="flex gap-1 items-center">
               <span className="sr-only">Open in LeetCode</span>
               <span
-                className={cn('text-sm md:text-lg max-w-52 md:max-w-[24rem] truncate', completed ? 'text-gray-600' : 'text-blue-600')}
+                className={cn(
+                  'text-sm md:text-lg max-w-52 md:max-w-[24rem] truncate',
+                  completed ? 'text-gray-600' : 'text-blue-600'
+                )}
               >
                 {title.replace('Lowest Common Ancestor', 'LCA')}
               </span>
@@ -132,18 +135,18 @@ export default function QuestionCard({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-2 w-8 md:w-fit justify-center md:mr-2">
-          {videoUrl && (
+        <div className="flex items-center gap-1 w-8 md:w-fit justify-center md:mr-2">
+          {videoUrl ? (
             <Button
               variant={'ghost'}
               size="icon"
               asChild
               className={cn(
-                'h-9 w-fit shadow-none md:p-2 hover:bg-red-100',
+                'h-9 w-fit shadow-none md:p-2 hover:bg-red-100 cursor-not-allowed',
                 completed ? 'bg-transparent border-0' : ''
               )}
             >
-              <a href={videoUrl} target="_blank" rel="noopener noreferrer">
+              <div className="flex items-center gap-1">
                 <span className="sr-only">Watch video solution</span>
                 <Image
                   src={YTIcon}
@@ -152,12 +155,12 @@ export default function QuestionCard({
                   height={32}
                   className="h-8 w-8 rounded-full flex-shrink-0"
                 />
-                <span className="hidden md:flex">Watch</span>
-              </a>
+                <span className="hidden md:flex">soon</span>
+              </div>
             </Button>
-          )}
+          ) : null}
         </div>
       </div>
-    </div>
+    </li>
   );
 }
