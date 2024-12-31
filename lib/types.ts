@@ -51,7 +51,18 @@ export type QuestionItemProps = {
   timeEstimate: number;
   topics: string[];
   patterns: string[];
+  companies: string[];
   leetCodeUrl: string;
   videoUrl?: string;
   completed: boolean;
+};
+
+export type pageType = {
+  id: string;
+  author: string;
+  slug: string;
+  title: string;
+  type: string;
+  created_date: string;
+  last_edited_time: string;
 };

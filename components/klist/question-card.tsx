@@ -1,13 +1,13 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+// import { Button } from '@/components/ui/button';
 import { useLocalStorage } from '@/hooks/use-local-storage';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { createToggleCompleted } from '@/lib/actions';
 import { cn } from '@/lib/utils';
-import YTIcon from '@/public/youtube.webp';
+// import YTIcon from '@/public/youtube.webp';
 import { CircleCheck } from 'lucide-react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 interface QuestionCardProps {
@@ -17,6 +17,7 @@ interface QuestionCardProps {
   timeEstimate: number;
   topics: string[];
   patterns: string[];
+  companies: string[];
   leetCodeUrl: string;
   videoUrl?: string;
   completed: boolean;
@@ -29,8 +30,9 @@ export default function QuestionCard({
   timeEstimate,
   topics,
   patterns,
+  companies,
   leetCodeUrl,
-  videoUrl,
+  // videoUrl,
   completed: initialCompleted
 }: QuestionCardProps) {
   const [completed, setCompleted] = useState(initialCompleted);
@@ -79,11 +81,19 @@ export default function QuestionCard({
               <span className="sr-only">Open in LeetCode</span>
               <span
                 className={cn(
-                  'text-sm md:text-lg max-w-52 md:max-w-[24rem] truncate',
+                  'text-sm md:text-lg max-w-44 md:max-w-[24rem] truncate',
                   completed ? 'text-gray-600' : 'text-blue-600'
                 )}
               >
                 {title.replace('Lowest Common Ancestor', 'LCA')}
+              </span>
+              <span
+                className={cn(
+                  'px-1 md:px-2 md:py-1 text-xs py-0.5 rounded-md',
+                  completed ? 'bg-orange-100 md:bg-orange-100' : 'bg-yellow-100 md:bg-yellow-200'
+                )}
+              >
+                {companies[0]} {companies.length > 1 ? `+${companies.length - 1}` : ''}
               </span>
               {/* <SquareArrowOutUpRight size={12} /> */}
             </a>
@@ -135,14 +145,14 @@ export default function QuestionCard({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-1 w-8 md:w-fit justify-center md:mr-2">
+        {/* <div className="flex items-center gap-1 w-8 md:w-fit justify-center md:mr-2">
           {videoUrl ? (
             <Button
               variant={'ghost'}
               size="icon"
               asChild
               className={cn(
-                'h-9 w-fit shadow-none md:p-2 hover:bg-red-100 cursor-not-allowed',
+                'h-9 w-fit shadow-none md:p-2 hover:bg-transparent cursor-not-allowed',
                 completed ? 'bg-transparent border-0' : ''
               )}
             >
@@ -159,7 +169,7 @@ export default function QuestionCard({
               </div>
             </Button>
           ) : null}
-        </div>
+        </div> */}
       </div>
     </li>
   );

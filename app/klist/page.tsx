@@ -9,16 +9,22 @@ export default function Page() {
     <div className="mx-auto max-w-4xl p-4">
       <Header />
 
-      <div className="my-4 flex gap-2">
-        <ProgressBar />
-        <Suspense fallback={<div>Loading...</div>}>
-          <FilterBar />
-        </Suspense>
+      {/* Add bg-white/80 backdrop-blur-sm for better visibility when sticky */}
+      <div className="sticky top-0 py-3.5 px-4 z-10 bg-white/80 backdrop-blur-lg border rounded-md mt-2 md:my-3">
+        <div className="flex gap-2">
+          <ProgressBar />
+          <Suspense fallback={<div>Loading...</div>}>
+            <FilterBar />
+          </Suspense>
+        </div>
       </div>
 
-      <Suspense fallback={<div>Loading...</div>}>
-        <QuestionList />
-      </Suspense>
+      {/* Add pt-4 to prevent content jump when header becomes sticky */}
+      <div className="pt-4">
+        <Suspense fallback={<div>Loading...</div>}>
+          <QuestionList />
+        </Suspense>
+      </div>
     </div>
   );
 }

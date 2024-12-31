@@ -1,8 +1,10 @@
+import '@/app/notion.css';
 import { NotionPage } from '@/components/notion-page';
 import { isDev, rootNotionPageId, rootNotionSpaceId } from '@/lib/config';
 import { getPage } from '@/lib/notion';
 import { notFound } from 'next/navigation';
 import { defaultMapPageUrl, getAllPagesInSpace } from 'notion-utils';
+import 'react-notion-x/src/styles.css';
 
 export async function generateStaticParams() {
   if (isDev) return [];

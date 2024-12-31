@@ -19,9 +19,9 @@ export function FilterBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  // const groupBy = searchParams.get('groupBy') || 'default';
+  const groupBy = searchParams.get('groupBy') || 'default';
   // console.log("🚀 ~ FilterBar ~ groupBy:", groupBy)
-  const sortBy = searchParams.get('sortBy') || 'default';
+  // const sortBy = searchParams.get('sortBy') || 'default';
   // console.log("🚀 ~ FilterBar ~ sortBy:", sortBy)
   const level = searchParams.get('level') || 'all';
   // console.log("🚀 ~ FilterBar ~ level:", level)
@@ -35,10 +35,13 @@ export function FilterBar() {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="flex md:hidden">
         <Drawer>
-          <DrawerTrigger className="h-[38px] px-2 py-1.5 rounded-md text-sm flex items-center justify-center gap-2 border bg-white text-primary hover:bg-white/80">
+          <DrawerTrigger
+            className="h-[38px] px-2 py-1.5 rounded-md select-none text-sm flex items-center justify-center gap-2 border bg-white text-primary hover:bg-white/80
+          transition-transform duration-50 ease-in-out transform hover:scale-90"
+          >
             <SlidersHorizontal size={16} />
             Filters
           </DrawerTrigger>
@@ -98,16 +101,28 @@ export function FilterBar() {
       <div className="hidden md:flex flex-wrap items-center gap-2 text-sm">
         <TopicsFilter />
 
-        <Select value={sortBy} onValueChange={(value) => updateSearchParams('sortBy', value)}>
+        <Select defaultValue="default" value={groupBy} onValueChange={(value) => updateSearchParams('groupBy', value)}>
+          <SelectTrigger className="w-[110px]">
+            <SelectValue defaultValue="default" placeholder="Group By" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="default">Group By</SelectItem>
+            <SelectItem value="pattern">Pattern</SelectItem>
+            <SelectItem value="company">Company</SelectItem>
+            <SelectItem value="topic">Topic</SelectItem>
+            <SelectItem value="difficulty">Difficulty</SelectItem>
+          </SelectContent>
+        </Select>
+
+        {/* <Select value={sortBy} onValueChange={(value) => updateSearchParams('sortBy', value)}>
           <SelectTrigger className="w-[140px]">
             <SelectValue placeholder="Sort by" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="default">Recommended</SelectItem>
             <SelectItem value="difficulty">Difficulty</SelectItem>
-            <SelectItem value="timeEstimate">Time Estimate</SelectItem>
           </SelectContent>
-        </Select>
+        </Select> */}
 
         <Select defaultValue="all" value={level} onValueChange={(value) => updateSearchParams('level', value)}>
           <SelectTrigger className="w-[105px]">
