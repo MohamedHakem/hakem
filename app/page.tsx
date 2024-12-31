@@ -50,9 +50,9 @@ export default function HakemPage() {
           <p>AWS Certified.</p>
         </div>
         <div className="flex flex-wrap gap-1 md:gap-2 lg:grid-cols-[.9fr_0.8fr_1fr] mt-0.5">
-          <a href={'mailto:hi@hakem.pro'}>
+          <a href={'mailto:mohamedhakem959628@gmail.com'}>
             <Badge variant={'secondary'} icon={<Mail size={'18'} fill="#fefae0" color="#ccc" />}>
-              hi@hakem.pro
+              email
             </Badge>
           </a>
           <a href={'https://www.upwork.com/freelancers/~01675da7684c6193a5'}>
