@@ -289,7 +289,7 @@ const QuestionList = () => {
           <div className="md:hidden absolute top-0 bottom-0 right-0 w-4 h-[48px] bg-gradient-to-l from-[#e0e0e080] to-transparent m-auto"></div>
         </div>
 
-        <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+        {/* <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
           <DrawerTrigger className="bg-white/20 border-l border-accent-foreground/10 md:border-none md:bg-white px-1.5 h-full">
             <div className="bg-white border border-accent-foreground/20 p-1.5 rounded-md hover:bg-white/80 hover:border-blue-300 w-9 h-9 flex justify-center items-center">
               <div className="w-9 flex justify-center">
@@ -307,7 +307,7 @@ const QuestionList = () => {
               <Button onClick={() => saveCustomList(newListName)}>Save List</Button>
             </div>
           </DrawerContent>
-        </Drawer>
+        </Drawer> */}
       </TabsList>
 
       <TabsContent value="all">{renderQuestionList(sortedQuestions)}</TabsContent>
