@@ -1,18 +1,17 @@
 'use client';
 
 import QuestionCard from '@/components/klist/question-card';
-import { useLocalStorage } from '@/hooks/use-local-storage';
-import { getQuestions } from '@/lib/klist-questions';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useMemo, useState, useEffect } from 'react';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { Input } from '@/components/ui/input';
-import { Plus } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useLocalStorage } from '@/hooks/use-local-storage';
+import { getQuestions } from '@/lib/klist-questions';
 import { cn } from '@/lib/utils';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ScrollArea, ScrollBar } from '../ui/scroll-area';
+import { Plus } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
 interface CustomList {
   name: string;
@@ -23,7 +22,7 @@ interface CustomList {
 const QuestionList = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [currentCustomFilters, setCurrentCustomFilters] = useState<string>('');
+  // const [currentCustomFilters, setCurrentCustomFilters] = useState<string>('');
   const [customLists, setCustomLists] = useState<CustomList[]>(() => {
     if (typeof window !== 'undefined') {
       return JSON.parse(localStorage.getItem('customLists') || '[]');
@@ -136,7 +135,6 @@ const QuestionList = () => {
       <Accordion type="multiple" className="space-y-2">
         {Object.entries(groupedQuestions).map(([group, questions]) => (
           <AccordionItem key={group} value={group}>
-            {/* <AccordionTrigger className="text-lg font-semibold capitalize"> */}
             <AccordionTrigger
               className={cn(
                 'text-lg font-semibold capitalize border rounded-lg px-4 bg-white',
@@ -174,30 +172,30 @@ const QuestionList = () => {
     if (isCustomList) {
       const params = new URLSearchParams(searchParams);
       params.delete('list'); // Remove list param to store only filters
-      setCurrentCustomFilters(params.toString());
+      // setCurrentCustomFilters(params.toString());
     }
   }, [searchParams]);
 
-  const loadList = (listName: string) => {
-    if (listName === 'custom') {
-      // Preserve current filters when switching to custom tab
-      const params = new URLSearchParams(currentCustomFilters);
-      params.set('list', 'custom');
-      router.push(`?${params.toString()}`);
-    } else {
-      // Load predefined list
-      router.push(`?list=${listName}`);
-    }
-  };
+  // const loadList = (listName: string) => {
+  //   if (listName === 'custom') {
+  //     // Preserve current filters when switching to custom tab
+  //     const params = new URLSearchParams(currentCustomFilters);
+  //     params.set('list', 'custom');
+  //     router.push(`?${params.toString()}`);
+  //   } else {
+  //     // Load predefined list
+  //     router.push(`?list=${listName}`);
+  //   }
+  // };
 
-  const saveCurrentCustomList = (name: string) => {
-    const newList: CustomList = {
-      name,
-      params: currentCustomFilters
-    };
-    setCustomLists((prev) => [...prev, newList]);
-    localStorage.setItem('customLists', JSON.stringify([...customLists, newList]));
-  };
+  // const saveCurrentCustomList = (name: string) => {
+  //   const newList: CustomList = {
+  //     name,
+  //     params: currentCustomFilters
+  //   };
+  //   setCustomLists((prev) => [...prev, newList]);
+  //   localStorage.setItem('customLists', JSON.stringify([...customLists, newList]));
+  // };
 
   // Track current filters
   useEffect(() => {
@@ -208,7 +206,7 @@ const QuestionList = () => {
       params.delete('list'); // Store only filters
       sessionStorage.setItem('currentCustomFilters', params.toString());
     }
-  }, [searchParams]);
+  }, [searchParams, hasCustomFilters]);
 
   // Load custom filters when switching back to custom tab
   const handleTabChange = (value: string) => {
@@ -243,7 +241,7 @@ const QuestionList = () => {
       params.set('list', 'custom');
       router.push(`?${params.toString()}`);
     }
-  }, [searchParams]);
+  }, [searchParams, router]);
 
   return (
     <Tabs value={currentList} onValueChange={handleTabChange}>

@@ -32,7 +32,7 @@ export default function PatternsFilter({ patterns }: { patterns: string[] }) {
     if (patternsParam === 'none') return [];
     if (!patternsParam) return [...patterns];
     return patternsParam.split(',').filter(Boolean);
-  }, [patternsParam]);
+  }, [patternsParam, patterns]);
 
   const isAllSelected = selectedPatterns.length === patterns.length;
 

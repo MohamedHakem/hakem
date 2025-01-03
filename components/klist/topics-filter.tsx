@@ -32,7 +32,7 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
     if (topicsParam === 'none') return [];
     if (!topicsParam) return [...topics];
     return topicsParam.split(',').filter(Boolean);
-  }, [topicsParam]);
+  }, [topicsParam, topics]);
 
   const isAllSelected = selectedTopics.length === topics.length;
 

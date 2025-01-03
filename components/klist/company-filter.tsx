@@ -1,13 +1,13 @@
-import { useState, useMemo } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import useMediaQuery from '@/hooks/use-media-query';
 import { Button } from '@/components/ui/button';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { Label } from '@/components/ui/label';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import useMediaQuery from '@/hooks/use-media-query';
 import { ChevronsUpDown, FilterIcon } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo, useState } from 'react';
 
 // Update with your actual topics
 // const klistQuestionsTopics = ['Arrays', 'Strings', 'DP', 'Trees'];
@@ -32,7 +32,7 @@ export default function CompaniesFilter({ companies }: { companies: string[] }) 
     if (companiesParam === 'none') return [];
     if (!companiesParam) return [...companies];
     return companiesParam.split(',').filter(Boolean);
-  }, [companiesParam]);
+  }, [companiesParam, companies]);
 
   const isAllSelected = selectedCompanies.length === companies.length;
 
@@ -155,7 +155,11 @@ function CompaniesCommandContent({
         <CommandEmpty>No company found.</CommandEmpty>
         <CommandGroup>
           {companies.map((company, index) => (
-            <CommandItem key={index} onSelect={() => handleCompanyToggle(company)} className="cursor-pointer py-2 border-b">
+            <CommandItem
+              key={index}
+              onSelect={() => handleCompanyToggle(company)}
+              className="cursor-pointer py-2 border-b"
+            >
               <Checkbox checked={selectedCompanies.includes(company)} className="mr-2" />
               {company}
             </CommandItem>

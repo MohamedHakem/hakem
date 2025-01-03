@@ -1,9 +1,25 @@
-import { FilterBar } from '@/components/klist/filter-bar';
-import ProgressBar from '@/components/klist/progress-bar';
-import QuestionList from '@/components/klist/question-list';
 import Header from '@/components/klist/header';
-import { Suspense } from 'react';
+import QuestionList from '@/components/klist/question-list';
 import StickyFilterSection from '@/components/klist/sticky-filter';
+import { Suspense } from 'react';
+
+export const metadata = {
+  title: 'Klist - Best Leetcode Questions for Interviews',
+  description: 'Klist - Best Leetcode Questions for Interviews',
+  openGraph: {
+    title: 'Klist - Best Leetcode Questions for Interviews',
+    description: '',
+    url: 'https://hakem.vercel.app/klist',
+    siteName: 'Klist '
+    // images: ['/opengraph-image']
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@ywkem',
+    creator: '@ywkem'
+  },
+  metadataBase: new URL('https://hakem.vercel.app/klist')
+};
 
 export default function Page() {
   return (

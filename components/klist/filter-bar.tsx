@@ -1,39 +1,30 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { ChevronsUpDown, SlidersHorizontal } from 'lucide-react';
+import { klistQuestionsCompanies, klistQuestionsPatterns, klistQuestionsTopics } from '@/lib/data';
+import { SlidersHorizontal } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from '../ui/drawer-original';
-import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
 import { Switch } from '../ui/switch';
-import TopicsFilter from './topics-filter';
-import { MouseEvent, useMemo, useState } from 'react';
-import { Checkbox } from '../ui/checkbox';
-import { Label } from '../ui/label';
-import { klistQuestionsCompanies, klistQuestionsPatterns, klistQuestionsTopics } from '@/lib/data';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import FilterIcon from '../icons/filter-icon';
-import { ScrollArea } from '../ui/scroll-area';
-import useMediaQuery from '@/hooks/use-media-query';
-import PatternsFilter from './pattern-filter';
 import CompaniesFilter from './company-filter';
+import PatternsFilter from './pattern-filter';
+import TopicsFilter from './topics-filter';
 
 export function FilterBar() {
-  const [open, setOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+  // const [open, setOpen] = useState(false);
+  // const isDesktop = useMediaQuery('(min-width: 768px)');
   const searchParams = useSearchParams();
   const router = useRouter();
 
   // Get topics from URL, default to all if param doesn't exist
-  const topicsParam = searchParams.get('topics');
-  const selectedTopics = useMemo(() => {
-    if (topicsParam === 'none') return [];
-    if (!topicsParam) return [...klistQuestionsTopics];
-    return topicsParam.split(',').filter(Boolean);
-  }, [topicsParam]);
+  // const topicsParam = searchParams.get('topics');
+  // const selectedTopics = useMemo(() => {
+  //   if (topicsParam === 'none') return [];
+  //   if (!topicsParam) return [...klistQuestionsTopics];
+  //   return topicsParam.split(',').filter(Boolean);
+  // }, [topicsParam]);
 
-  console.log('🚀 ~ FilterBar ~ topicsParam:', topicsParam);
+  // console.log('🚀 ~ FilterBar ~ topicsParam:', topicsParam);
   // const selectedTopics = topicsParam ? topicsParam.split(',') : [...klistQuestionsTopics];
 
   // const selectedTopics =
@@ -43,12 +34,12 @@ export function FilterBar() {
   //     ? topicsParam.split(',').filter(Boolean)
   //     : [...klistQuestionsTopics]; // Default: all selected
 
-  console.log(
-    '🚀 ~ FilterBar ~ selectedTopics: ',
-    selectedTopics.length,
-    ', ~ klistQuestionsTopics: ',
-    klistQuestionsTopics.length
-  );
+  // console.log(
+  //   '🚀 ~ FilterBar ~ selectedTopics: ',
+  //   selectedTopics.length,
+  //   ', ~ klistQuestionsTopics: ',
+  //   klistQuestionsTopics.length
+  // );
 
   // const updateTopics = (topic: string) => {
   //   console.log('🚀 ~ updateTopics ~ topic:', topic);
@@ -86,41 +77,41 @@ export function FilterBar() {
   //   router.push(`?${params.toString()}`);
   // };
 
-  const handleTopicToggle = (topic: string) => {
-    const newTopics = selectedTopics.includes(topic)
-      ? selectedTopics.filter((t) => t !== topic)
-      : [...selectedTopics, topic];
+  // const handleTopicToggle = (topic: string) => {
+  //   const newTopics = selectedTopics.includes(topic)
+  //     ? selectedTopics.filter((t) => t !== topic)
+  //     : [...selectedTopics, topic];
 
-    if (newTopics.length === 0) {
-      updateSearchParams('topics', 'none');
-    } else if (newTopics.length < klistQuestionsTopics.length) {
-      updateSearchParams('topics', newTopics.join(','));
-    } else {
-      updateSearchParams('topics', null);
-    }
-  };
+  //   if (newTopics.length === 0) {
+  //     updateSearchParams('topics', 'none');
+  //   } else if (newTopics.length < klistQuestionsTopics.length) {
+  //     updateSearchParams('topics', newTopics.join(','));
+  //   } else {
+  //     updateSearchParams('topics', null);
+  //   }
+  // };
 
-  const handleSelectAll = () => {
-    console.log('🚀 ~ handleSelectAll ~ handleSelectAll ~');
+  // const handleSelectAll = () => {
+  //   console.log('🚀 ~ handleSelectAll ~ handleSelectAll ~');
 
-    updateSearchParams('topics', null);
+  //   updateSearchParams('topics', null);
 
-    // const params = new URLSearchParams(searchParams.toString());
-    // params.delete('topics'); // Remove param to indicate all selected
-    // router.push(`?${params.toString()}`);
-    // setOpen(false);
-  };
+  //   // const params = new URLSearchParams(searchParams.toString());
+  //   // params.delete('topics'); // Remove param to indicate all selected
+  //   // router.push(`?${params.toString()}`);
+  //   // setOpen(false);
+  // };
 
-  const handleDeselectAll = () => {
-    console.log('🚀 ~ handleDeselectAll ~ handleDeselectAll ~');
+  // const handleDeselectAll = () => {
+  //   console.log('🚀 ~ handleDeselectAll ~ handleDeselectAll ~');
 
-    updateSearchParams('topics', 'none');
+  //   updateSearchParams('topics', 'none');
 
-    // const params = new URLSearchParams(searchParams.toString());
-    // params.set('topics', 'none'); // Empty string means none selected
-    // router.push(`?${params.toString()}`);
-    // setOpen(false);
-  };
+  //   // const params = new URLSearchParams(searchParams.toString());
+  //   // params.set('topics', 'none'); // Empty string means none selected
+  //   // router.push(`?${params.toString()}`);
+  //   // setOpen(false);
+  // };
 
   // const isAllSelected = selectedTopics.length === klistQuestionsTopics.length;
 
