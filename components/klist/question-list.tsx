@@ -29,9 +29,11 @@ const QuestionList = () => {
     }
     return [];
   });
+  console.log("🚀 ~ QuestionList ~ setCustomLists:", setCustomLists)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   console.log("🚀 ~ QuestionList ~ isDrawerOpen:", isDrawerOpen)
   const [newListName, setNewListName] = useState('');
+  console.log("🚀 ~ QuestionList ~ setNewListName:", setNewListName)
   console.log("🚀 ~ QuestionList ~ newListName:", newListName)
   const [sessionCustomFilters, setSessionCustomFilters] = useState<string | null>(null);
 
