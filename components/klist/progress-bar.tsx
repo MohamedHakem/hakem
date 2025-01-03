@@ -169,7 +169,7 @@ export default function ProgressBar({ hideOnMobile = false }: { hideOnMobile?: b
 
   if (!hideOnMobile) {
     return (
-      <div className="w-full border rounded-md px-3 py-2 flex flex-row items-center justify-center flex-1 gap-2 bg-white">
+      <div className="md:hidden w-full border rounded-md px-3 py-2 flex flex-row items-center justify-center flex-1 gap-2 bg-white">
         <Progress value={progress} className="w-full h-2" />
         <div className="text-xs text-muted-foreground text-center flex flex-row flex-none items-center justify-center gap-1">
           <div className="flex-shrink-0">
@@ -181,5 +181,15 @@ export default function ProgressBar({ hideOnMobile = false }: { hideOnMobile?: b
     );
   }
 
-  return null;
+  return (
+    <div className="hidden md:flex w-full border rounded-md px-3 py-2 flex-row items-center justify-center flex-1 gap-2 bg-white">
+      <Progress value={progress} className="w-full h-2" />
+      <div className="text-xs text-muted-foreground text-center flex flex-row flex-none items-center justify-center gap-1">
+        <div className="flex-shrink-0">
+          {completedQuestions.length} /{totalQuestions.length}
+        </div>
+        <div>completed</div>
+      </div>
+    </div>
+  );
 }

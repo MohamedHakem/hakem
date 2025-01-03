@@ -12,29 +12,29 @@ import { ChevronsUpDown, FilterIcon } from 'lucide-react';
 // Update with your actual topics
 // const klistQuestionsTopics = ['Arrays', 'Strings', 'DP', 'Trees'];
 
-interface TopicsCommandContentProps {
-  selectedTopics: string[];
+interface CompaniesCommandContentProps {
+  selectedCompanies: string[];
   isAllSelected: boolean;
   handleSelectAll: () => void;
   handleDeselectAll: () => void;
-  handleTopicToggle: (topic: string) => void;
-  topics: string[];
+  handleCompanyToggle: (company: string) => void;
+  companies: string[];
 }
 
-export default function TopicsFilter({ topics }: { topics: string[] }) {
+export default function CompaniesFilter({ companies }: { companies: string[] }) {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const topicsParam = searchParams.get('topics');
-  const selectedTopics = useMemo(() => {
-    if (topicsParam === 'none') return [];
-    if (!topicsParam) return [...topics];
-    return topicsParam.split(',').filter(Boolean);
-  }, [topicsParam]);
+  const companiesParam = searchParams.get('companies');
+  const selectedCompanies = useMemo(() => {
+    if (companiesParam === 'none') return [];
+    if (!companiesParam) return [...companies];
+    return companiesParam.split(',').filter(Boolean);
+  }, [companiesParam]);
 
-  const isAllSelected = selectedTopics.length === topics.length;
+  const isAllSelected = selectedCompanies.length === companies.length;
 
   const updateSearchParams = (key: string, value: string | null) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
@@ -47,36 +47,36 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
     router.push(`?${current.toString()}`);
   };
 
-  const handleTopicToggle = (topic: string) => {
-    const newTopics = selectedTopics.includes(topic)
-      ? selectedTopics.filter((t) => t !== topic)
-      : [...selectedTopics, topic];
+  const handleCompanyToggle = (company: string) => {
+    const newCompanies = selectedCompanies.includes(company)
+      ? selectedCompanies.filter((t) => t !== company)
+      : [...selectedCompanies, company];
 
-    if (newTopics.length === 0) {
-      updateSearchParams('topics', 'none');
-    } else if (newTopics.length < topics.length) {
-      updateSearchParams('topics', newTopics.join(','));
+    if (newCompanies.length === 0) {
+      updateSearchParams('companies', 'none');
+    } else if (newCompanies.length < companies.length) {
+      updateSearchParams('companies', newCompanies.join(','));
     } else {
-      updateSearchParams('topics', null);
+      updateSearchParams('companies', null);
     }
   };
 
   const handleSelectAll = () => {
-    updateSearchParams('topics', null);
+    updateSearchParams('companies', null);
     // setOpen(false);
   };
 
   const handleDeselectAll = () => {
-    updateSearchParams('topics', 'none');
+    updateSearchParams('companies', 'none');
     // setOpen(false);
   };
 
   const triggerButton = (
     <Button variant="outline" className="flex items-center gap-1 px-3">
       <FilterIcon className="lucide lucide-list-filter size-4 shrink-0" />
-      Topics
-      {/* {selectedTopics.length > 0 && ( */}
-      <span className="ml-1 rounded-full bg-primary/10 px-1.5 py-0.5 text-xs">{selectedTopics.length}</span>
+      Companies
+      {/* {selectedCompanies.length > 0 && ( */}
+      <span className="ml-1 rounded-full bg-primary/10 px-1.5 py-0.5 text-xs">{selectedCompanies.length}</span>
       {/* )} */}
       <ChevronsUpDown className="ml-1 h-4 w-4 shrink-0 opacity-50" />
     </Button>
@@ -87,13 +87,13 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>{triggerButton}</PopoverTrigger>
         <PopoverContent className="w-[300px] p-0">
-          <TopicsCommandContent
-            selectedTopics={selectedTopics}
+          <CompaniesCommandContent
+            selectedCompanies={selectedCompanies}
             isAllSelected={isAllSelected}
             handleSelectAll={handleSelectAll}
             handleDeselectAll={handleDeselectAll}
-            handleTopicToggle={handleTopicToggle}
-            topics={topics}
+            handleCompanyToggle={handleCompanyToggle}
+            companies={companies}
           />
         </PopoverContent>
       </Popover>
@@ -105,16 +105,16 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
       <DrawerTrigger asChild>{triggerButton}</DrawerTrigger>
       <DrawerContent className="">
         <DrawerHeader>
-          <DrawerTitle>Choose Topics</DrawerTitle>
+          <DrawerTitle>Choose Companies</DrawerTitle>
         </DrawerHeader>
         <div className="mt-4 border-t">
-          <TopicsCommandContent
-            selectedTopics={selectedTopics}
+          <CompaniesCommandContent
+            selectedCompanies={selectedCompanies}
             isAllSelected={isAllSelected}
             handleSelectAll={handleSelectAll}
             handleDeselectAll={handleDeselectAll}
-            handleTopicToggle={handleTopicToggle}
-            topics={topics}
+            handleCompanyToggle={handleCompanyToggle}
+            companies={companies}
           />
         </div>
       </DrawerContent>
@@ -122,17 +122,17 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
   );
 }
 
-function TopicsCommandContent({
-  selectedTopics,
+function CompaniesCommandContent({
+  selectedCompanies,
   isAllSelected,
   handleSelectAll,
   handleDeselectAll,
-  handleTopicToggle,
-  topics
-}: TopicsCommandContentProps) {
+  handleCompanyToggle,
+  companies
+}: CompaniesCommandContentProps) {
   return (
     <Command>
-      <CommandInput placeholder="Search topics..." />
+      <CommandInput placeholder="Search companies..." />
       <div className="border-b p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -147,17 +147,17 @@ function TopicsCommandContent({
             <Label htmlFor="select-all">Select All</Label>
           </div>
           <span className="text-xs text-muted-foreground">
-            {selectedTopics.length}/{topics.length}
+            {selectedCompanies.length}/{companies.length}
           </span>
         </div>
       </div>
       <CommandList>
-        <CommandEmpty>No topic found.</CommandEmpty>
+        <CommandEmpty>No company found.</CommandEmpty>
         <CommandGroup>
-          {topics.map((topic, index) => (
-            <CommandItem key={index} onSelect={() => handleTopicToggle(topic)} className="cursor-pointer py-2 border-b">
-              <Checkbox checked={selectedTopics.includes(topic)} className="mr-2" />
-              {topic}
+          {companies.map((company, index) => (
+            <CommandItem key={index} onSelect={() => handleCompanyToggle(company)} className="cursor-pointer py-2 border-b">
+              <Checkbox checked={selectedCompanies.includes(company)} className="mr-2" />
+              {company}
             </CommandItem>
           ))}
         </CommandGroup>

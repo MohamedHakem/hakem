@@ -3,24 +3,16 @@ import ProgressBar from '@/components/klist/progress-bar';
 import QuestionList from '@/components/klist/question-list';
 import Header from '@/components/klist/header';
 import { Suspense } from 'react';
+import StickyFilterSection from '@/components/klist/sticky-filter';
 
 export default function Page() {
   return (
-    <div className="mx-auto max-w-4xl p-4">
+    <div className="">
       <Header />
 
-      {/* Add bg-white/80 backdrop-blur-sm for better visibility when sticky */}
-      <div className="sticky top-0 py-3.5 px-4 z-10 bg-white/80 backdrop-blur-lg border rounded-md mt-2 md:my-3">
-        <div className="flex gap-2">
-          <ProgressBar />
-          <Suspense fallback={<div>Loading...</div>}>
-            <FilterBar />
-          </Suspense>
-        </div>
-      </div>
+      <StickyFilterSection />
 
-      {/* Add pt-4 to prevent content jump when header becomes sticky */}
-      <div className="pt-4">
+      <div className="mx-auto max-w-3xl p-4 pt-4">
         <Suspense fallback={<div>Loading...</div>}>
           <QuestionList />
         </Suspense>

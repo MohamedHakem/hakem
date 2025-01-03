@@ -12,29 +12,29 @@ import { ChevronsUpDown, FilterIcon } from 'lucide-react';
 // Update with your actual topics
 // const klistQuestionsTopics = ['Arrays', 'Strings', 'DP', 'Trees'];
 
-interface TopicsCommandContentProps {
-  selectedTopics: string[];
+interface PatternsCommandContentProps {
+  selectedPatterns: string[];
   isAllSelected: boolean;
   handleSelectAll: () => void;
   handleDeselectAll: () => void;
-  handleTopicToggle: (topic: string) => void;
-  topics: string[];
+  handlePatternToggle: (pattern: string) => void;
+  patterns: string[];
 }
 
-export default function TopicsFilter({ topics }: { topics: string[] }) {
+export default function PatternsFilter({ patterns }: { patterns: string[] }) {
   const [open, setOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 768px)');
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const topicsParam = searchParams.get('topics');
-  const selectedTopics = useMemo(() => {
-    if (topicsParam === 'none') return [];
-    if (!topicsParam) return [...topics];
-    return topicsParam.split(',').filter(Boolean);
-  }, [topicsParam]);
+  const patternsParam = searchParams.get('patterns');
+  const selectedPatterns = useMemo(() => {
+    if (patternsParam === 'none') return [];
+    if (!patternsParam) return [...patterns];
+    return patternsParam.split(',').filter(Boolean);
+  }, [patternsParam]);
 
-  const isAllSelected = selectedTopics.length === topics.length;
+  const isAllSelected = selectedPatterns.length === patterns.length;
 
   const updateSearchParams = (key: string, value: string | null) => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
@@ -47,36 +47,36 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
     router.push(`?${current.toString()}`);
   };
 
-  const handleTopicToggle = (topic: string) => {
-    const newTopics = selectedTopics.includes(topic)
-      ? selectedTopics.filter((t) => t !== topic)
-      : [...selectedTopics, topic];
+  const handlePatternToggle = (pattern: string) => {
+    const newPatterns = selectedPatterns.includes(pattern)
+      ? selectedPatterns.filter((t) => t !== pattern)
+      : [...selectedPatterns, pattern];
 
-    if (newTopics.length === 0) {
+    if (newPatterns.length === 0) {
       updateSearchParams('topics', 'none');
-    } else if (newTopics.length < topics.length) {
-      updateSearchParams('topics', newTopics.join(','));
+    } else if (newPatterns.length < patterns.length) {
+      updateSearchParams('patterns', newPatterns.join(','));
     } else {
-      updateSearchParams('topics', null);
+      updateSearchParams('patterns', null);
     }
   };
 
   const handleSelectAll = () => {
-    updateSearchParams('topics', null);
+    updateSearchParams('patterns', null);
     // setOpen(false);
   };
 
   const handleDeselectAll = () => {
-    updateSearchParams('topics', 'none');
+    updateSearchParams('patterns', 'none');
     // setOpen(false);
   };
 
   const triggerButton = (
     <Button variant="outline" className="flex items-center gap-1 px-3">
       <FilterIcon className="lucide lucide-list-filter size-4 shrink-0" />
-      Topics
-      {/* {selectedTopics.length > 0 && ( */}
-      <span className="ml-1 rounded-full bg-primary/10 px-1.5 py-0.5 text-xs">{selectedTopics.length}</span>
+      Patterns
+      {/* {selectedPatterns.length > 0 && ( */}
+      <span className="ml-1 rounded-full bg-primary/10 px-1.5 py-0.5 text-xs">{selectedPatterns.length}</span>
       {/* )} */}
       <ChevronsUpDown className="ml-1 h-4 w-4 shrink-0 opacity-50" />
     </Button>
@@ -87,13 +87,13 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>{triggerButton}</PopoverTrigger>
         <PopoverContent className="w-[300px] p-0">
-          <TopicsCommandContent
-            selectedTopics={selectedTopics}
+          <PatternsCommandContent
+            selectedPatterns={selectedPatterns}
             isAllSelected={isAllSelected}
             handleSelectAll={handleSelectAll}
             handleDeselectAll={handleDeselectAll}
-            handleTopicToggle={handleTopicToggle}
-            topics={topics}
+            handlePatternToggle={handlePatternToggle}
+            patterns={patterns}
           />
         </PopoverContent>
       </Popover>
@@ -105,16 +105,16 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
       <DrawerTrigger asChild>{triggerButton}</DrawerTrigger>
       <DrawerContent className="">
         <DrawerHeader>
-          <DrawerTitle>Choose Topics</DrawerTitle>
+          <DrawerTitle>Choose Patterns</DrawerTitle>
         </DrawerHeader>
         <div className="mt-4 border-t">
-          <TopicsCommandContent
-            selectedTopics={selectedTopics}
+          <PatternsCommandContent
+            selectedPatterns={selectedPatterns}
             isAllSelected={isAllSelected}
             handleSelectAll={handleSelectAll}
             handleDeselectAll={handleDeselectAll}
-            handleTopicToggle={handleTopicToggle}
-            topics={topics}
+            handlePatternToggle={handlePatternToggle}
+            patterns={patterns}
           />
         </div>
       </DrawerContent>
@@ -122,17 +122,17 @@ export default function TopicsFilter({ topics }: { topics: string[] }) {
   );
 }
 
-function TopicsCommandContent({
-  selectedTopics,
+function PatternsCommandContent({
+  selectedPatterns,
   isAllSelected,
   handleSelectAll,
   handleDeselectAll,
-  handleTopicToggle,
-  topics
-}: TopicsCommandContentProps) {
+  handlePatternToggle,
+  patterns
+}: PatternsCommandContentProps) {
   return (
     <Command>
-      <CommandInput placeholder="Search topics..." />
+      <CommandInput placeholder="Search patterns..." />
       <div className="border-b p-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -147,17 +147,21 @@ function TopicsCommandContent({
             <Label htmlFor="select-all">Select All</Label>
           </div>
           <span className="text-xs text-muted-foreground">
-            {selectedTopics.length}/{topics.length}
+            {selectedPatterns.length}/{patterns.length}
           </span>
         </div>
       </div>
       <CommandList>
         <CommandEmpty>No topic found.</CommandEmpty>
         <CommandGroup>
-          {topics.map((topic, index) => (
-            <CommandItem key={index} onSelect={() => handleTopicToggle(topic)} className="cursor-pointer py-2 border-b">
-              <Checkbox checked={selectedTopics.includes(topic)} className="mr-2" />
-              {topic}
+          {patterns.map((pattern, index) => (
+            <CommandItem
+              key={index}
+              onSelect={() => handlePatternToggle(pattern)}
+              className="cursor-pointer py-2 border-b"
+            >
+              <Checkbox checked={selectedPatterns.includes(pattern)} className="mr-2" />
+              {pattern}
             </CommandItem>
           ))}
         </CommandGroup>

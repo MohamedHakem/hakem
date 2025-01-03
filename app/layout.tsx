@@ -1,4 +1,5 @@
 import { Toaster } from '@/components/ui/toaster';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Provider } from 'react-wrap-balancer';
 import './globals.css';
 
@@ -28,7 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-[#f7f5f3] min-h-screen">
-        <Provider>{children}</Provider>
+        <Provider>
+          <NuqsAdapter>{children}</NuqsAdapter>
+        </Provider>
         {/* {children} */}
         <Toaster />
       </body>
