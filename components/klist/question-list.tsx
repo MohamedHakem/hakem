@@ -30,7 +30,9 @@ const QuestionList = () => {
     return [];
   });
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  console.log("🚀 ~ QuestionList ~ isDrawerOpen:", isDrawerOpen)
   const [newListName, setNewListName] = useState('');
+  console.log("🚀 ~ QuestionList ~ newListName:", newListName)
   const [sessionCustomFilters, setSessionCustomFilters] = useState<string | null>(null);
 
   const currentList = searchParams.get('list') || 'all';
@@ -106,15 +108,15 @@ const QuestionList = () => {
     }, {} as Record<string, typeof sortedQuestions>);
   }, [sortedQuestions, groupBy]);
 
-  const saveCustomList = (name: string) => {
-    const newList = {
-      name,
-      params: searchParams.toString()
-    };
-    setCustomLists((prev) => [...prev, newList]);
-    setIsDrawerOpen(false);
-    setNewListName('');
-  };
+  // const saveCustomList = (name: string) => {
+  //   const newList = {
+  //     name,
+  //     params: searchParams.toString()
+  //   };
+  //   setCustomLists((prev) => [...prev, newList]);
+  //   setIsDrawerOpen(false);
+  //   setNewListName('');
+  // };
 
   const loadCustomList = (params: string) => {
     router.push(`?${params}`);

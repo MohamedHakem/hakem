@@ -26,11 +26,11 @@ export default function StickyFilterSection() {
       <div
         className={`
           w-full mx-auto transition-all duration-200 ease-in-out
-          sticky top-0 z-10 backdrop-blur-md mt-2 md:my-3
+          sticky top-0 z-10 backdrop-blur-md md:my-3
           ${isStuck ? 'md:max-w-7xl bg-white/70 md:bg-white/80 py-2 px-3' : 'md:max-w-3xl md:px-4'}
         `}
       >
-        <div className={cn("md:py-2 px-2 rounded-md", isStuck ? '' : 'md:border')}>
+        <div className={cn("md:py-2 px-4 md:p-0 rounded-md", isStuck ? '' : '')}>
           <div className="flex gap-1">
             <ProgressBar />
             <Suspense fallback={<div>Loading...</div>}>
