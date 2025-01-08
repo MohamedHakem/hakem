@@ -27,25 +27,23 @@ export default async function BlogPage() {
       </div>
 
       <ul className="py-8">
-         {/* {AllPages.map((page) => ( */}
-          {/* <li key={page.id}> */}
-            <li>          
-            <Link
-              {/* href={`/blog/${AllPages[0].slug}`} */}
-              href={"https://mhakem.notion.site/The-Auto-Renewal-Subscription-Scam-161c3f6b1f908061b9c7ce2d9c4894dd"}
-              className="flex transition-[background-color] border-y border-gray-200/75 border-b-0 hover:bg-gray-100 active:bg-gray-200"
-            >
-              <div className="py-2.5 px-1 flex grow justify-between items-center">
-                <h2 className={cn('max-w-[calc(100%-50px)] font-medium text-sm')}>
-                  {/* <Balancer>{page.title}</Balancer> */}
-                  {/* {page.title} */}
-                  The Auto-Renewal Subscription Scam
-                </h2>
-                <span className="text-gray-500 dark:text-gray-500 text-xs">{AllPages[0].type}</span>
-              </div>
-            </Link>
-          </li>
-        ))}
+        {/* {AllPages.map((page) => ( */}
+        {/* <li key={page.id}> */}
+        <li>
+          <Link
+            // href={`/blog/${AllPages[0].slug}`}
+            href={'https://mhakem.notion.site/The-Auto-Renewal-Subscription-Scam-161c3f6b1f908061b9c7ce2d9c4894dd'}
+            className="flex transition-[background-color] border-y border-gray-200/75 border-b-0 hover:bg-gray-100 active:bg-gray-200"
+          >
+            <div className="py-2.5 px-1 flex grow justify-between items-center">
+              <h2 className={cn('max-w-[calc(100%-50px)] font-medium text-sm')}>
+                <Balancer>{AllPages[0].title}</Balancer>
+              </h2>
+              <span className="text-gray-500 dark:text-gray-500 text-xs">{AllPages[0].type}</span>
+            </div>
+          </Link>
+        </li>
+        {/* ))} */}
       </ul>
 
       <div>
