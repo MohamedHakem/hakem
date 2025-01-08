@@ -48,7 +48,7 @@ export default async function BlogPage() {
 
       <div>
         <div className="flex w-full rounded-lg bg-[#efefef] p-4 mt-32 text-sm justify-center">
-          it's not much but it&apos;s honest work
+          it&apos;s not much but it&apos;s honest work
         </div>
       </div>
     </div>
