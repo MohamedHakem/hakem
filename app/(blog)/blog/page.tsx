@@ -27,20 +27,21 @@ export default async function BlogPage() {
       </div>
 
       <ul className="py-8">
-        {AllPages.map((page) => (
-          <li key={page.id}>
+         {/* {AllPages.map((page) => ( */}
+          {/* <li key={page.id}> */}
+            <li>          
             <Link
-              href={`/blog/${page.slug}`}
+              {/* href={`/blog/${AllPages[0].slug}`} */}
+              href={"https://mhakem.notion.site/The-Auto-Renewal-Subscription-Scam-161c3f6b1f908061b9c7ce2d9c4894dd"}
               className="flex transition-[background-color] border-y border-gray-200/75 border-b-0 hover:bg-gray-100 active:bg-gray-200"
             >
               <div className="py-2.5 px-1 flex grow justify-between items-center">
-                <h2
-                  className={cn('max-w-[calc(100%-50px)] font-medium', page.title.length > 50 ? 'text-[13px]' : 'text-sm')}
-                >
-                  <Balancer>{page.title}</Balancer>
+                <h2 className={cn('max-w-[calc(100%-50px)] font-medium text-sm')}>
+                  {/* <Balancer>{page.title}</Balancer> */}
                   {/* {page.title} */}
+                  The Auto-Renewal Subscription Scam
                 </h2>
-                <span className="text-gray-500 dark:text-gray-500 text-xs">{page.type}</span>
+                <span className="text-gray-500 dark:text-gray-500 text-xs">{AllPages[0].type}</span>
               </div>
             </Link>
           </li>
@@ -49,7 +50,7 @@ export default async function BlogPage() {
 
       <div>
         <div className="flex w-full rounded-lg bg-[#efefef] p-4 mt-32 text-sm justify-center">
-          We do this not because it&apos;s easy, but because we thought it would be easy
+          it's not much but it's honest work
         </div>
       </div>
     </div>
